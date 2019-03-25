@@ -3,6 +3,8 @@
 
 def main():
 
+    print("")
+
     masterList = [[chr(i) for i in range(ord("A"), ord("Z") + 1)] for j in range(27)]
     masterList[0] = []
 
@@ -13,7 +15,7 @@ def main():
         elif word == "":
             print("")
         else:
-            letters = word.split(" ")
+            letters = word.lower().split(" ")
             print(letters)
 
             file = open("words/words" + str(len(letters)).zfill(2) + ".txt", "r")
@@ -21,7 +23,6 @@ def main():
             file.close()
 
             print(lines[0])
-
 
     print("\n Quit")
 

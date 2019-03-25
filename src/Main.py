@@ -2,6 +2,7 @@
 # 3/25/2019
 
 from functools import reduce
+from re        import search
 
 def main():
 
@@ -34,9 +35,23 @@ def main():
                 print("Numbers must be between 0 and 26\n")
                 continue
 
-            print(letters)
+            regex = ""
+            for i in letters:
+                if type(i) == int:
+                    regex += "."
+                else:
+                    regex += i
 
-            print(lines[0])
+            print(letters)
+            print(regex)
+
+            for line in lines:
+                line = line.strip()
+                if not search(regex, line):
+                    continue
+                else:
+                    print(line)
+
 
     print("\n Quit")
 

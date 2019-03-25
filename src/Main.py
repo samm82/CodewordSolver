@@ -1,6 +1,8 @@
 # Main.py
 # 3/25/2019
 
+from functools import reduce
+
 def main():
 
     print("")
@@ -27,6 +29,10 @@ def main():
                     letters[i] = int(letters[i])
                 except ValueError:
                     continue
+
+            if not reduce((lambda x, y : x and y), [(0 < i <= 26) for i in letters if type(i) == int]):
+                print("Numbers must be between 0 and 26\n")
+                continue
 
             print(letters)
 

@@ -22,6 +22,14 @@ def main():
             lines = file.readlines()
             file.close()
 
+            for i in range(len(letters)):
+                try:
+                    letters[i] = int(letters[i])
+                except ValueError:
+                    continue
+
+            print(letters)
+
             print(lines[0])
 
     print("\n Quit")

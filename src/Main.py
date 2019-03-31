@@ -8,9 +8,21 @@ from GUI import entryGUI
 
 def main():
 
-    dims = input("Enter length and width of codeword puzzle: ").split(" ")
-    dim1 = int(dims[0])
-    dim2 = int(dims[1])
+    invalidInput = True
+    while invalidInput:
+        dims = input("Enter length and width of codeword puzzle: ").split(" ")
+        if len(dims) == 2:
+            try:
+                dim1 = int(dims[0])
+                dim2 = int(dims[1])
+                invalidInput = False
+            except:
+                print("Invalid input.\n")
+                continue
+
+        else:
+            print("Invalid input.")
+            continue        
 
     values = entryGUI(dim1, dim2)
     for val in values:

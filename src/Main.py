@@ -13,8 +13,8 @@ def main():
         dims = input("Enter length and width of codeword puzzle: ").split(" ")
         if len(dims) == 2:
             try:
-                dim1 = int(dims[0])
-                dim2 = int(dims[1])
+                length = int(dims[0])
+                width  = int(dims[1])
                 invalidInput = False
             except:
                 print("Invalid input.\n")
@@ -24,9 +24,20 @@ def main():
             print("Invalid input.")
             continue        
 
-    values = entryGUI(dim1, dim2)
-    for val in values:
-        print(val)
+    vals = entryGUI(length, width)
+    formattedVals = []
+    
+    for j in range(width):
+        formattedVals.append(vals[j*length : j*length+width])
+        
+    # for lst in formattedVals:
+    #     for val in lst:
+    #         print(val, end=", ")
+    #     print()
+
+    vals = formattedVals
+
+    # TODO: extract list of words from vals
 
     # print("")
 

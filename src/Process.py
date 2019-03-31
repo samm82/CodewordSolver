@@ -21,13 +21,36 @@ def extractWords(array):
 
     transpose = transposeArray(array)
 
-    for row in array:
+    for row in transpose:
         words2 = extractFromRow(row)
 
     return words1 + words2
 
 def extractFromRow(lst):
     wordsList = []
+    word = []
+
+    for char in lst:
+        print("Word:", word, "Words List:", wordsList)
+        print("Char:", char)
+        input()
+        if char == '' and len(word) < 2:
+            word = []
+            # print("Word:", word, "Words List:", wordsList)
+            # input()
+        elif char == '':
+            #newWord = word[0:len(word)]
+            # wordsList += [word[:]]
+            wordsList.append([i for i in word])
+            word = []
+            print("ADDED")
+            # print("Word:", word, "Words List:", wordsList)
+            # input()
+        else:
+            word.append(char)
+            # print("Word:", word, "Words List:", wordsList)
+            # input()
+
     return wordsList
 
 def transposeArray(array):

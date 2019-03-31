@@ -4,9 +4,13 @@
 import PySimpleGUI as sg
 
 def entryGUI(length, width):
-    line = [sg.InputText('', size=(3, 1)) for i in range(length)]
+    entryLayout = []
 
-    entryLayout = [line for i in range(width)]
+    # code from MikeyB from StackOverflow
+    for i in range(width):
+        line = [sg.InputText('', size=(3, 1)) for i in range(length)]
+        entryLayout.append(line)
+    
     entryLayout.append([sg.CloseButton("OK"), sg.CloseButton("Cancel")])
 
     entryWin = sg.Window("CodeWord Solver").Layout(entryLayout)

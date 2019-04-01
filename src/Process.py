@@ -1,5 +1,5 @@
 # Process.py
-# 3/31/2019
+# 4/1/2019
 
 def oneDtoTwoDArray(lst, l, w):
     for elem in lst:
@@ -16,40 +16,41 @@ def oneDtoTwoDArray(lst, l, w):
     return array
 
 def extractWords(array):
+    words = []
     for row in array:
-        words1 = extractFromRow(row)
+        newList = extractFromRow(row)
+        if newList != []:
+            words += newList
 
     transpose = transposeArray(array)
 
     for row in transpose:
-        words2 = extractFromRow(row)
+        newList = extractFromRow(row)
+        if newList != []:
+            words += newList
 
-    return words1 + words2
+    return words
 
 def extractFromRow(lst):
     wordsList = []
     word = []
 
-    for char in lst:
-        print("Word:", word, "Words List:", wordsList)
-        print("Char:", char)
-        input()
+    print(lst)
+    for i in range(len(lst)):
+        char = lst[i]
         if char == '' and len(word) < 2:
             word = []
-            # print("Word:", word, "Words List:", wordsList)
-            # input()
         elif char == '':
-            #newWord = word[0:len(word)]
-            # wordsList += [word[:]]
-            wordsList.append([i for i in word])
-            word = []
-            print("ADDED")
-            # print("Word:", word, "Words List:", wordsList)
-            # input()
+            if word != []:
+                wordsList.append(word)
+                word = []
+        elif i == len(lst) - 1:
+            word.append(char)
+            if len(word) > 1:
+                wordsList.append(word)
+                word = []
         else:
             word.append(char)
-            # print("Word:", word, "Words List:", wordsList)
-            # input()
 
     return wordsList
 

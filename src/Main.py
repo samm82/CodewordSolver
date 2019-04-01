@@ -1,11 +1,11 @@
 # Main.py
-# 3/31/2019
+# 4/1/2019
 
 from functools import reduce
 from re        import match
 
 from GUI     import entryGUI
-from Process import *
+from Process import extractWords, oneDtoTwoDArray
 
 def main():
 
@@ -27,15 +27,14 @@ def main():
 
     vals = entryGUI(length, width)
     vals = oneDtoTwoDArray(vals, length, width)
-    # formattedVals = []
-    
-    # for j in range(width):
-    #     formattedVals.append(vals[j*length : j*length+width])
         
-    for lst in vals:
-        for val in lst:
-            print(val, end=", ")
-        print()
+    # for lst in vals:
+    #     for val in lst:
+    #         print(val, end=", ")
+    #     print()
+
+    words = extractWords(vals)
+    print(words)
 
     # vals = formattedVals
 

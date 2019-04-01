@@ -35,7 +35,6 @@ def extractFromRow(lst):
     wordsList = []
     word = []
 
-    print(lst)
     for i in range(len(lst)):
         char = lst[i]
         if char == '' and len(word) < 2:
@@ -64,10 +63,10 @@ def transposeArray(array):
     return transpose
 
 
-testList = [[1,   2,  'A', 4,   ''],
-            [13,  '', '',  'E', ''],
-            ['R', 17, 'A', 2,   '']
-            ]
+# testList = [[1,   2,  'A', 4,   ''],
+#             [13,  '', '',  'E', ''],
+#             ['R', 17, 'A', 2,   '']
+#             ]
 
-newList = extractWords(testList)
-print(newList)
+# newList = extractWords(testList)
+# print(newList)

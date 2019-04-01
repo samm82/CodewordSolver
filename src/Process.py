@@ -2,12 +2,6 @@
 # 4/1/2019
 
 def oneDtoTwoDArray(lst, l, w):
-    for elem in lst:
-        try:
-            elem = int(elem)
-        except:
-            continue
-
     array = []
     
     for i in range(w):

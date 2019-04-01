@@ -41,11 +41,11 @@ def main():
     # print(letters)
     # print(numbers)
 
-    possibleLetters = list(map(chr, range(ord('A'), ord('Z')+1)))
+    possibleLetters = list(map(chr, range(ord('a'), ord('z')+1)))
 
     for letter in letters:
         possibleLetters.remove(letter)
-        
+
     # print(possibleLetters)
 
     # vals = formattedVals

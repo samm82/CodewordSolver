@@ -10,6 +10,7 @@ def getLetsNums(bigList):
                 if new not in nums:
                     nums.append(new)
             except:
+                char.upper()
                 if char not in lets:
                     lets.append(char)
 

@@ -6,6 +6,7 @@ from re        import match
 
 from GUI     import entryGUI
 from Process import extractWords, oneDtoTwoDArray
+from Solve   import getLetsNums
 
 def main():
 
@@ -34,7 +35,18 @@ def main():
     #     print()
 
     words = extractWords(vals)
-    print(words)
+    # print(words)
+
+    letters, numbers = getLetsNums(words)
+    # print(letters)
+    # print(numbers)
+
+    possibleLetters = list(map(chr, range(ord('A'), ord('Z')+1)))
+
+    for letter in letters:
+        possibleLetters.remove(letter)
+        
+    # print(possibleLetters)
 
     # vals = formattedVals
 

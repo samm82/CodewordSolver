@@ -16,7 +16,7 @@ def extractWords(array):
         if newList != []:
             words += newList
 
-    transpose = __transposeArray(array)
+    transpose = transposeArray(array)
 
     for row in transpose:
         newList = __extractFromRow(row)
@@ -49,6 +49,11 @@ def __extractFromRow(lst):
     word = []
 
     for i in range(len(lst)):
+        try:
+            lst[i] = int(lst[i])
+        except:
+            lst[i] = lst[i].lower()
+
         char = lst[i]
         if char == '' and len(word) < 2:
             word = []
@@ -57,12 +62,12 @@ def __extractFromRow(lst):
                 wordsList.append(word)
                 word = []
         elif i == len(lst) - 1:
-            word.append(char.lower())
+            word.append(char)
             if len(word) > 1:
                 wordsList.append(word)
                 word = []
         else:
-            word.append(char.lower())
+            word.append(char)
 
     return wordsList
 

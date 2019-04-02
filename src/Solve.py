@@ -46,6 +46,7 @@ def solveWords(dct, words):
 
         for i in lensBuildList:
             if i == 0:
+                bigIndexList.append([])
                 continue
 
             mult = False
@@ -63,10 +64,17 @@ def solveWords(dct, words):
             # print(iterationNum, i, iList)
             bigIndexList.append(iList)
 
-        # for i in bigIndexList:
-        #     print(i)
+        # print(iterationNum)
+
+        for i in bigIndexList:
+            # print(i)
+            print(len(i))
 
         wordList = []
+
+        # print(len(indexList))
+        # print(len(buildingList))
+        # print(len(bigIndexList))
 
         for i in range(len(bigIndexList[0])):
             word = ""
@@ -75,9 +83,8 @@ def solveWords(dct, words):
             wordList.append(word)
 
         wordList = [word for word in wordList if word in lines]
-        wordList.sort()
 
-        # print(wordList)
+        print(wordList)
 
         letters = [list(_word) for _word in wordList]
         letters = transposeArray(letters)
@@ -89,15 +96,23 @@ def solveWords(dct, words):
             if type(charList[i]) == int:
                 dct.update({charList[i] : letters[i]})
 
-        # for key,val in dct.items():
-        #     print(key, "=>", val)
+        input("Press any key to run the next iteration")
+
+        # printLines = []
+
+        open("output.txt", a)
+        for key,val in dct.items():
+            # print(key, "=>", val)
+            # printLines.append()
+            file.write(str(key) + "=>" + str(val))
+        file.close()
 
 
-testwords = [[1, 2, 'a', 1]]
-dct       = {
-        1 : ['d', 'e', 'l', 'r', 's', 't'],
-        2 : ['e', 'l', 'r']
-    }
+# testwords = [[1, 2, 'a', 1]]
+# dct       = {
+#         1 : ['d', 'e', 'l', 'r', 's', 't'],
+#         2 : ['e', 'l', 'r']
+#     }
 
 def iListNoMultiples(total, n):
     return int(total / n) * list(range(n))
@@ -112,4 +127,4 @@ def iListMultiples(total, n):
 
     return lst
 
-solveWords(dct, testwords)
+# solveWords(dct, testwords)

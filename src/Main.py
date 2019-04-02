@@ -62,6 +62,9 @@ def main():
 
     solveWords(dct, words)
 
+    for key,val in dct.items():
+        print(key, "=>", val)
+
 
     # while True:
     #     word = input("Type 'exit' to exit or a codeword (separated by spaces): ")

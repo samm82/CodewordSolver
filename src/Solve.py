@@ -29,8 +29,28 @@ def solveWords(dct, words):
         # print(charList)     # [1, 2, 'a']
         # print(indexList)    # [0, 1, 2, 0]
 
-        iterationNum = reduce(lambda a, b : a*b, [len(lst) for lst in buildingList])
-        bigIndexList = [iList1(iterationNum, len(buildingList[i])) for i in indexList]
+        iterationNum  = reduce(lambda a, b : a*b, [len(lst) for lst in buildingList])
+        lensBuildList = [len(lst) for lst in buildingList]
+
+        # print(lensBuildList)
+        
+        bigIndexList = []
+
+        for i in lensBuildList:
+            mult = False
+            for j in lensBuildList:
+                if i == j:
+                    continue
+                elif j % i == 0 and i < j: 
+                    mult = True
+
+            if mult:
+                iList = iListMultiples(iterationNum, i)
+            else:
+                iList = iListNoMultiples(iterationNum, i)
+
+            # print(iList)
+            bigIndexList.append(iList)
 
         # for i in bigIndexList:
         #     print(i)
@@ -53,12 +73,20 @@ def solveWords(dct, words):
 testwords = [[1, 2, 'a', 1]]
 dct       = {
         1 : ['d', 'e', 'l', 'r', 's', 't'],
-        2 : ['d', 'e', 'l', 'r', 's']
+        2 : ['e', 'l', 'r']
     }
 
-def iList1(total, n):
+def iListNoMultiples(total, n):
     return int(total / n) * list(range(n))
 
-# implement for if multiples
+def iListMultiples(total, n):
+    lst = []
+    rng = list(range(n))
+
+    for i in range(n):
+        lst += int(total / (n ** 2)) * rng
+        rng.insert(len(rng), rng.pop(0))
+
+    return lst
 
 solveWords(dct, testwords)

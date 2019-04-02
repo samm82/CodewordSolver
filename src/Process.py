@@ -1,5 +1,5 @@
 # Process.py
-# 4/1/2019
+# 4/2/2019
 
 def oneDtoTwoDArray(lst, l, w):
     array = []
@@ -38,12 +38,12 @@ def extractFromRow(lst):
                 wordsList.append(word)
                 word = []
         elif i == len(lst) - 1:
-            word.append(char)
+            word.append(char.lower())
             if len(word) > 1:
                 wordsList.append(word)
                 word = []
         else:
-            word.append(char)
+            word.append(char.lower())
 
     return wordsList
 

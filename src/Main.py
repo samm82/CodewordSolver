@@ -47,6 +47,8 @@ def main():
 
     possibleLetters = list(map(chr, range(ord('a'), ord('z')+1)))
 
+    # print(possibleLetters)
+
     for i in range(len(letters)):
         letters[i] = letters[i].lower()
         possibleLetters.remove(letters[i])
@@ -56,16 +58,8 @@ def main():
     for dct in dicts:
         print(dct)
 
-    # print(possibleLetters)
+    solveWords(dicts, words)
 
-    # vals = formattedVals
-
-    # TODO: extract list of words from vals
-
-    # print("")
-
-    # masterList = [[chr(i) for i in range(ord("a"), ord("z") + 1)] for j in range(27)]
-    # masterList[0] = []
 
     # while True:
     #     word = input("Type 'exit' to exit or a codeword (separated by spaces): ")

@@ -66,7 +66,7 @@ def __extractFromRow(lst):
 
     return wordsList
 
-def __transposeArray(array):
+def transposeArray(array):
     transpose = [[0 for i in range(len(array))] for j in range(len(array[0]))]
 
     for i in range(len(array)):

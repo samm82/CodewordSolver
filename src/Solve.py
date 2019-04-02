@@ -1,7 +1,7 @@
 # Solve.py
-# 4/1/2019
+# 4/2/2019
 
-from functools import reduce
+from Process   import transposeArray
 
 def solveWords(dct, words):
     for word in words:
@@ -23,13 +23,21 @@ def solveWords(dct, words):
                 else:
                     buildingList.append(dct[char])
             else:
+                buildingList.append([])
+                charList.append('')
                 indexList.append(charList.index(char))
                 
         # print(buildingList) # [['d', 'e', 'l', 'r', 's', 't'], ['d', 'e', 'l', 'r', 's'], ['a']]
         # print(charList)     # [1, 2, 'a']
         # print(indexList)    # [0, 1, 2, 0]
 
-        iterationNum  = reduce(lambda a, b : a*b, [len(lst) for lst in buildingList])
+        iterationNum = 1
+        for lst in buildingList:
+            if lst == []:
+                continue
+            else:
+                iterationNum *= len(lst)
+
         lensBuildList = [len(lst) for lst in buildingList]
 
         # print(lensBuildList)
@@ -37,6 +45,9 @@ def solveWords(dct, words):
         bigIndexList = []
 
         for i in lensBuildList:
+            if i == 0:
+                continue
+
             mult = False
             for j in lensBuildList:
                 if i == j:
@@ -49,7 +60,7 @@ def solveWords(dct, words):
             else:
                 iList = iListNoMultiples(iterationNum, i)
 
-            # print(iList)
+            # print(iterationNum, i, iList)
             bigIndexList.append(iList)
 
         # for i in bigIndexList:
@@ -66,9 +77,21 @@ def solveWords(dct, words):
         wordList = [word for word in wordList if word in lines]
         wordList.sort()
 
-        print(wordList)
+        # print(wordList)
 
-        # for _word in words:
+        letters = [list(_word) for _word in wordList]
+        letters = transposeArray(letters)
+        letters = [list(set(lst)) for lst in letters]
+
+        # print(letters)
+
+        for i in indexList:
+            if type(charList[i]) == int:
+                dct.update({charList[i] : letters[i]})
+
+        # for key,val in dct.items():
+        #     print(key, "=>", val)
+
 
 testwords = [[1, 2, 'a', 1]]
 dct       = {

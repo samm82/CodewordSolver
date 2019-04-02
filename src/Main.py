@@ -5,8 +5,8 @@ from functools import reduce
 from re        import match
 
 from GUI     import entryGUI
-from Process import extractWords, oneDtoTwoDArray
-from Solve   import getLetsNums
+from Process import extractWords, getLetsNums, oneDtoTwoDArray
+from Solve   import solveWords
 
 def main():
 

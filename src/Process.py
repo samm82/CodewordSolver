@@ -12,20 +12,39 @@ def oneDtoTwoDArray(lst, l, w):
 def extractWords(array):
     words = []
     for row in array:
-        newList = extractFromRow(row)
+        newList = __extractFromRow(row)
         if newList != []:
             words += newList
 
-    transpose = transposeArray(array)
+    transpose = __transposeArray(array)
 
     for row in transpose:
-        newList = extractFromRow(row)
+        newList = __extractFromRow(row)
         if newList != []:
             words += newList
 
     return words
 
-def extractFromRow(lst):
+def getLetsNums(bigList):
+    lets, nums = [], []
+    for smallList in bigList:
+        for char in smallList:
+            try:
+                new = int(char)
+                if new not in nums:
+                    nums.append(new)
+            except:
+                char.lower()
+                if char not in lets:
+                    lets.append(char)
+
+    lets.sort()
+    nums.sort()
+    return lets, nums
+
+# Local functions
+
+def __extractFromRow(lst):
     wordsList = []
     word = []
 
@@ -47,7 +66,7 @@ def extractFromRow(lst):
 
     return wordsList
 
-def transposeArray(array):
+def __transposeArray(array):
     transpose = [[0 for i in range(len(array))] for j in range(len(array[0]))]
 
     for i in range(len(array)):

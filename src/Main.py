@@ -1,5 +1,5 @@
 # Main.py
-# 4/1/2019
+# 4/2/2019
 
 from functools import reduce
 from re        import match
@@ -10,24 +10,28 @@ from Solve   import getLetsNums
 
 def main():
 
-    invalidInput = True
-    while invalidInput:
-        dims = input("Enter length and width of codeword puzzle: ").split(" ")
-        if len(dims) == 2:
-            try:
-                length = int(dims[0])
-                width  = int(dims[1])
-                invalidInput = False
-            except:
-                print("Invalid input.\n")
-                continue
+    # invalidInput = True
+    # while invalidInput:
+    #     dims = input("Enter length and width of codeword puzzle: ").split(" ")
+    #     if len(dims) == 2:
+    #         try:
+    #             length = int(dims[0])
+    #             width  = int(dims[1])
+    #             invalidInput = False
+    #         except:
+    #             print("Invalid input.\n")
+    #             continue
 
-        else:
-            print("Invalid input.")
-            continue        
+    #     else:
+    #         print("Invalid input.")
+    #         continue        
 
-    vals = entryGUI(length, width)
-    vals = oneDtoTwoDArray(vals, length, width)
+    # vals = entryGUI(length, width)
+    # vals = oneDtoTwoDArray(vals, length, width)
+
+    vals = [['', '15', '', '11', '', '3', '', '20', '', '11', '', '19', '', '7', ''], ['18', 'I', '8', '18', '22', '7', '6', '25', '', '17', '5', '6', '16', '22', '1'], ['', '8', '', 'I', '', '3', '', '22', '', '22', '', '2', '', 'I', ''], ['12', '3', '16', '8', '22', '15', '25', '23', '22', '16', '', '9', '25', '23', '18'], ['', '2', '', '8', '', '17', '', 'I', '', '12', '', 'I', '', '9', ''], ['17', '22', '5', 'I', '17', 'I', '', '4', '16', '3', '8', '3', '17', 'I', '15'], ['', '', '', '8', '', '6', '', '14', '', '', '', '', '', '16', ''], ['9', '16', 'I', '10', '22', '8', 'D', '', '24', '22', '14', '11', 'I', 'D', '3'], ['', '3', '', '', '', '', '', '3', '', '9', '', '2', '', '', ''], ['22', 'P', 'P', '3', '8', 'D', 'I', '1', '', 'D', '16', '6', '24', '11', '3'], ['', '16', '', '1', '', 'I', '', '15', '', 'I', '', '6', '', '17', ''], ['7', '6', '23', '17', '', '4', '3', '23', 'I', '15', 'I', '17', '6', '25', '11'], ['', '22', '', '16', '', '4', '', '22', '', '22', '', '5', '', 'D', ''], ['6', '15', '17', '22', '12', '3', '', 'I', '8', '17', '16', '3', 'P', 'I', 'D'], ['', '5', '', '11', '', '16', '', '2', '', '3', '', 'D', '', '6', '']]
+
+    # print(vals)
         
     # for lst in vals:
     #     for val in lst:
@@ -43,8 +47,14 @@ def main():
 
     possibleLetters = list(map(chr, range(ord('a'), ord('z')+1)))
 
-    for letter in letters:
-        possibleLetters.remove(letter)
+    for i in range(len(letters)):
+        letters[i] = letters[i].lower()
+        possibleLetters.remove(letters[i])
+
+    dicts = [{num : possibleLetters} for num in numbers]
+
+    for dct in dicts:
+        print(dct)
 
     # print(possibleLetters)
 

@@ -1,13 +1,18 @@
 # Solve.py
 # 4/1/2019
 
-def solveWords(dicts, words):
+def solveWords(dct, words):
     for word in words:
         file = open("words/words" + str(len(word)).zfill(2) + ".txt", "r")
         lines = file.readlines()
         file.close()
 
-# testList = [['1', '5', 'A', '7'], ['S', '5', '7', '3', '2'], ['1', 'E', '9', 'S', '6'], ['A', '18', '23', '7']]
-# lets, nums = getLetsNums(testList)
-# print(lets)
-# print(nums)
+        buildingList = []
+
+        for char in word: # [1, 2, 'a', 1] - rear, dead, seas
+            if type(char) == str:
+                buildingList.append([char])
+            else:
+                buildingList.append(dicts)
+
+

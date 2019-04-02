@@ -53,12 +53,14 @@ def main():
         letters[i] = letters[i].lower()
         possibleLetters.remove(letters[i])
 
-    dicts = [{num : possibleLetters} for num in numbers]
+    dct = {}
+    for num in numbers:
+        dct[num] = possibleLetters
 
-    for dct in dicts:
-        print(dct)
+    for key,val in dct.items():
+        print(key, "=>", val)
 
-    solveWords(dicts, words)
+    solveWords(dct, words)
 
 
     # while True:

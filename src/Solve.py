@@ -8,20 +8,15 @@ from Process import transposeArray
 def solveWords(dct, words):
     for word in words:
 
-        print("\nNew Word:", word)
-
         for key,val in dct.items():
             if type(val) == list and len(val) == 1:
-                print(key, "->", val)
                 val = val[0]
-                print(key, "->", val)
 
         regex = ""
         for char in word:
             if type(char) == str:
                 regex += char
             else:
-                print(dct[char])
                 if len(dct[char]) == 1:
                     regex += dct[char][0]
                 else:
@@ -29,8 +24,6 @@ def solveWords(dct, words):
                     for i in dct[char]:
                         regex += i
                     regex += "]"
-
-        print(regex)
 
         if "[" in regex:
 
@@ -79,17 +72,12 @@ def solveWords(dct, words):
                     if type(val) == list and len(val) == 1:
                         minimized = False
 
-            for key,val in dct.items():
-                print(key, "=>", val)
+    for key,val in dct.items():
+        if type(val) == str:
+            input(str(key).rjust(2) + " is " + val)
 
+    for key,val in dct.items():
+        if type(val) == list:
+            return False
 
-            input("Press any key to run the next iteration")
-
-        # printLines = []
-
-        # open("output.txt", a)
-        # for key,val in dct.items():
-        #     # print(key, "=>", val)
-        #     # printLines.append()
-        #     file.write(str(key) + "=>" + str(val))
-        # file.close()
+    return True

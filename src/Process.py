@@ -79,12 +79,3 @@ def transposeArray(array):
            transpose[j][i] = array[i][j]
 
     return transpose
-
-
-# testList = [[1,   2,  'A', 4,   ''],
-#             [13,  '', '',  'E', ''],
-#             ['R', 17, 'A', 2,   '']
-#             ]
-
-# newList = extractWords(testList)
-# print(newList)

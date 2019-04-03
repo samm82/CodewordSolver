@@ -39,7 +39,7 @@ def main():
     #     print()
 
     words = extractWords(vals)
-    # print(words)
+    print(words)
 
     letters, numbers = getLetsNums(words)
     # print(letters)
@@ -57,13 +57,13 @@ def main():
     for num in numbers:
         dct[num] = possibleLetters
 
-    for key,val in dct.items():
-        print(key, "=>", val)
+    # for key,val in dct.items():
+    #     print(key, "=>", val)
 
     solveWords(dct, words)
 
-    for key,val in dct.items():
-        print(key, "=>", val)
+    # for key,val in dct.items():
+    #     print(key, "=>", val)
 
 
     # while True:

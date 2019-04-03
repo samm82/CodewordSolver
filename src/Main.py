@@ -61,6 +61,7 @@ def main():
     #     print(key, "=>", val)
 
     solveWords(dct, words)
+    solveWords(dct, words)
 
     # for key,val in dct.items():
     #     print(key, "=>", val)

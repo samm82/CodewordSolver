@@ -78,6 +78,7 @@ def solveWords(dct, words):
 
     for key,val in dct.items():
         if type(val) == list:
+            print(key, val)
             return False
 
     return True
